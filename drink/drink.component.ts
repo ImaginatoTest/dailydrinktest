@@ -9,9 +9,9 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./drink.component.scss']
 })
 export class DrinkComponent implements OnInit {
-  formGroup: FormGroup;
+  formGroup!: FormGroup;
   update=false;
-  drink=null;
+  drink:any;
 
   constructor(
     public dialogRef: MatDialogRef<DrinkComponent>,
@@ -27,7 +27,7 @@ export class DrinkComponent implements OnInit {
     });
     this.update= this.data.update;
     this.drink=this.data.drink;
-    if(this.drink){
+    if(this.drink !==null){
       this.formGroup.patchValue({
         name:this.drink.name,
         price:this.drink.price
